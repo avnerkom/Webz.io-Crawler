@@ -22,10 +22,12 @@ $ pip install -r requirements.txt
 
 ### Configuration
 
-The crawler supports configuration via a config.json file located in the root directory. Parameters include:
+The crawler's configuration can be set via a `config.json` file located in the root directory. Parameters include:
 - `url`: URL of the forum to be crawled.
-- `username`: (Optional) Username for forum authentication.
-- `password`: (Optional) Password for forum authentication.
+- `username`: (Optional) Username for forum authentication. If provided, a corresponding password must also be provided.
+- `password`: (Optional) Password for forum authentication. Must be provided if a username is specified.
+
+If credentials are provided in both the `config.json` file and via command-line arguments, the values passed through the command line take precedence. However, both `username` and `password` are optional but must be passed either via the `config.json` file or through command-line arguments.
 
 ### Running the Crawler
 
