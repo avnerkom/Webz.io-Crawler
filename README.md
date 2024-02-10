@@ -49,5 +49,3 @@ The crawler saves the extracted post data to JSON files in the `./data/` directo
 - **Concurrency:** Utilizes concurrent connections to optimize performance during crawling.
 - **Rate Limiting:** To prevent IP blocking, the crawler pauses for 3 seconds between each document retrieval and uses a user-agent header.
 - **CLI Usage:** The `--help` option provides detailed information on command-line usage, including available options and arguments.
-
-Feel free to customize the README further based on your specific requirements and usage instructions.
