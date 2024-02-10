@@ -135,7 +135,7 @@ class WebCrawler:
 
                 except AttributeError:
                     pass
-            extracted_info_list = self.remove_special_characters(extracted_info_list)
+            # extracted_info_list = self.remove_special_characters(extracted_info_list)
             return extracted_info_list
 
         soup = BeautifulSoup(html_content, 'html.parser')
