@@ -116,7 +116,8 @@ class WebCrawler:
 
                     published_time_element = topic.find(class_='cbleft')
                     published_time = published_time_element.text.strip().split(': ')[1] if wpforo_post_content_element else 'Unknown'
-
+                    published_time = self.extract_date_time(published_time)
+                    
                     # Create a dictionary for the extracted information of this topic
                     extracted_info = {
                         "author_name": author_name,
@@ -181,6 +182,12 @@ class WebCrawler:
                 if isinstance(value, str):
                     info[key] = re.sub(r'[^\w\s]', '', value)
         return extracted_info_list
+
+    def extract_date_time(self, input_string: str) -> str:
+        # Define a regular expression pattern to match date and time
+        pattern = r'\b\d{1,2}/\d{1,2}/\d{4}\s+\d{1,2}:\d{2}\s+[ap]m\b'
+        clean_date_time = re.search(pattern, input_string).group() if re.search(pattern, input_string) else None
+        return clean_date_time
 
     async def save_post_to_file(self, url: str, data: Dict[str, str], filename_prefix: str) -> None:
         """Saves post data to a JSON file."""
